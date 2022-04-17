@@ -9,14 +9,14 @@ namespace BoardingHouse.WebApp.Controllers
 {
     public class ShopController : Controller
     {
-        private HouseService _houseService;
-        public ShopController(HouseService houseService)
+        private ShopService _shopService;
+        public ShopController(ShopService shopService)
         {
-            _houseService = houseService;
+            _shopService = shopService;
         }
         public async Task<IActionResult> Index(int? pageNumber)
         {
-            return  View(await _houseService.GetPaginationHousesAsync(pageNumber));
+            return  View(await _shopService.GetPaginationHousesAsync(pageNumber));
         }
     }
 }

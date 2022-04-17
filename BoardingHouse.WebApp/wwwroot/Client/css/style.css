@@ -71,9 +71,10 @@ font-family: 'Poppins', sans-serif;
     Gutter Code 
 ==================================================== */
 .ltn__no-gutter > [class*='col-'] {
-  /* No padding only for child columns */
-  padding-right: 0;
-  padding-left: 0; }
+    /* No padding only for child columns */
+    padding-right: 0;
+    padding-left: 0;
+}
 
 .ltn__no-gutter-all [class*='col-'] {
   /* No padding for every columns */

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoardingHouse.Domain.UserDomain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace BoardingHouse.Domain.HouseDomain.Models
     {
         [Key]
         public int Id { get; set; }
+        public string Name { get;set; }
         public string Description { get; set; }
         public decimal HousePrice { get; set; }
         public string UnitHousePrice { get; set; }
@@ -25,5 +27,6 @@ namespace BoardingHouse.Domain.HouseDomain.Models
         public DateTime PublicationDate { get; set; }
         public string HouseStatus { get; set; }
         public bool IsParkingVehicleInRoom { get; set; }
+        public virtual AppUser AppUser { get; set; }
     }
 }

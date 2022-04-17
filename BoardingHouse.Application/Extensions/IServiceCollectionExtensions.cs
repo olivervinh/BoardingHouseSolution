@@ -39,7 +39,7 @@ namespace BoardingHouse.Application.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             return services
-                .AddScoped<HouseService>();
+                .AddScoped<ShopService>();
         }
     }
 }

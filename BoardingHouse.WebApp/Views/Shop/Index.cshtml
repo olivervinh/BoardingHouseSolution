@@ -7,7 +7,7 @@
 <div class="ltn__utilize-overlay"></div>
 
 <!-- BREADCRUMB AREA START -->
-@*<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image " data-bg="~/Client/img/bg/14.jpg">
+<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image " data-bg="~/Client/img/bg/14.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-</div>*@
+</div>
 <!-- BREADCRUMB AREA END -->
 <!-- PRODUCT DETAILS AREA START -->
 <div class="ltn__product-area ltn__product-gutter">
@@ -82,441 +82,116 @@
                                         </form>
                                     </div>
                                 </div>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Acreage</th>
-                                            <th scope="col">UnitAcreage</th>
-                                            <th scope="col">HousePrice</th>
-                                            <th scope="col">HouseStatus</th>
-                                            <th scope="col">UnitHousePrice</th>
-                                            <th scope="col">Capacity</th>
-                                            <th scope="col">IsParkingVehicleInRoom</th>
-                                            <th scope="col">ElectricityPrice</th>
-                                            <th scope="col">UnitElectricityPrice</th>
-                                            <th scope="col">NumberMezzanine</th>
-                                            <th scope="col">PublicationDate</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <td>@item.Id</td>
-                                                <td>@item.Acreage</td>
-                                                <td>@item.UnitAcreage</td>
-                                                <td>@item.HousePrice</td>
-                                                <td>@item.HouseStatus</td>
-                                                <td>@item.UnitHousePrice</td>
-                                                <td>@item.Capacity</td>
-                                                <td>@item.IsParkingVehicleInRoom</td>
-                                                <td>@item.ElectricityPrice</td>
-                                                <td>@item.UnitElectricityPrice</td>
-                                                <td>@item.NumberMezzanine</td>
-                                                <td>@item.PublicationDate</td>
-                                            </tr>
-                                        }
+                                @*<table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Acreage</th>
+                    <th scope="col">UnitAcreage</th>
+                    <th scope="col">HousePrice</th>
+                    <th scope="col">HouseStatus</th>
+                    <th scope="col">UnitHousePrice</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">IsParkingVehicleInRoom</th>
+                    <th scope="col">ElectricityPrice</th>
+                    <th scope="col">UnitElectricityPrice</th>
+                    <th scope="col">NumberMezzanine</th>
+                    <th scope="col">PublicationDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Acreage</td>
+                        <td>@item.UnitAcreage</td>
+                        <td>@item.HousePrice</td>
+                        <td>@item.HouseStatus</td>
+                        <td>@item.UnitHousePrice</td>
+                        <td>@item.Capacity</td>
+                        <td>@item.IsParkingVehicleInRoom</td>
+                        <td>@item.ElectricityPrice</td>
+                        <td>@item.UnitElectricityPrice</td>
+                        <td>@item.NumberMezzanine</td>
+                        <td>@item.PublicationDate</td>
+                    </tr>
+                }
 
-                                    </tbody>
-                                </table>
-                                <!-- ltn__product-item -->
-                                <!--<div class="col-xl-6 col-sm-6 col-12">
-                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="~/Client/img/product-3/1.jpg" alt="#"></a>
-                                <div class="real-estate-agent">
-                                    <div class="agent-img">
-                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
+            </tbody>
+        </table>*@
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-xl-6 col-sm-6 col-12">
+                                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                            <div class="product-img">
+                                                <a href="product-details.html"><img src="~/Client/img/product-3/1.jpg" alt="#"></a>
+                                                <div class="real-estate-agent">
+                                                    <div class="agent-img">
+                                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-badge">
+                                                    <ul>
+                                                        <li class="sale-badg">For Rent</li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="product-title"><a href="product-details.html">@item.Name</a></h2>
+                                                <div class="product-img-location">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                                    <li>
+                                                        <span>3 </span>
+                                                        Bed
+                                                    </li>
+                                                    <li>
+                                                        <span>2 </span>
+                                                        Bath
+                                                    </li>
+                                                    <li>
+                                                        <span>@item.Acreage</span>
+                                                        Square Ft
+                                                    </li>
+                                                </ul>
+                                                <div class="product-hover-action">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
+                                                                <i class="flaticon-expand"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                                                <i class="flaticon-heart-1"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="product-details.html" title="Product Details">
+                                                                <i class="flaticon-add"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-info-bottom">
+                                                <div class="product-price">
+                                                    <span>@item.HousePrice<label>/@item.UnitHousePrice</label></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badg">For Rent</li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                                <div class="product-img-location">
-                                    <ul>
-                                        <li>
-                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                    <li>
-                                        <span>3 </span>
-                                        Bed
-                                    </li>
-                                    <li>
-                                        <span>2 </span>
-                                        Bath
-                                    </li>
-                                    <li>
-                                        <span>3450 </span>
-                                        Square Ft
-                                    </li>
-                                </ul>
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                <i class="flaticon-expand"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                <i class="flaticon-heart-1"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html" title="Product Details">
-                                                <i class="flaticon-add"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info-bottom">
-                                <div class="product-price">
-                                    <span>$34,900<label>/Month</label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                                <!-- ltn__product-item -->
-                                <!--<div class="col-xl-6 col-sm-6 col-12">
-                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="~/Client/img/product-3/2.jpg" alt="#"></a>
-                                <div class="real-estate-agent">
-                                    <div class="agent-img">
-                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badg">For Sale</li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                                <div class="product-img-location">
-                                    <ul>
-                                        <li>
-                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                    <li>
-                                        <span>3 </span>
-                                        Bed
-                                    </li>
-                                    <li>
-                                        <span>2 </span>
-                                        Bath
-                                    </li>
-                                    <li>
-                                        <span>3450 </span>
-                                        Square Ft
-                                    </li>
-                                </ul>
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                <i class="flaticon-expand"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                <i class="flaticon-heart-1"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html" title="Product Details">
-                                                <i class="flaticon-add"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info-bottom">
-                                <div class="product-price">
-                                    <span>$34,900<label>/Month</label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                                <!-- ltn__product-item -->
-                                <!--<div class="col-xl-6 col-sm-6 col-12">
-                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="~/Client/img/product-3/3.jpg" alt="#"></a>
-                                <div class="real-estate-agent">
-                                    <div class="agent-img">
-                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badg">For Rent</li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                                <div class="product-img-location">
-                                    <ul>
-                                        <li>
-                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                    <li>
-                                        <span>3 </span>
-                                        Bed
-                                    </li>
-                                    <li>
-                                        <span>2 </span>
-                                        Bath
-                                    </li>
-                                    <li>
-                                        <span>3450 </span>
-                                        Square Ft
-                                    </li>
-                                </ul>
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                <i class="flaticon-expand"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                <i class="flaticon-heart-1"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html" title="Product Details">
-                                                <i class="flaticon-add"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info-bottom">
-                                <div class="product-price">
-                                    <span>$34,900<label>/Month</label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                                <!-- ltn__product-item -->
-                                <!--<div class="col-xl-6 col-sm-6 col-12">
-                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="~/Client/img/product-3/4.jpg" alt="#"></a>
-                                <div class="real-estate-agent">
-                                    <div class="agent-img">
-                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badg">For Rent</li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                                <div class="product-img-location">
-                                    <ul>
-                                        <li>
-                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                    <li>
-                                        <span>3 </span>
-                                        Bed
-                                    </li>
-                                    <li>
-                                        <span>2 </span>
-                                        Bath
-                                    </li>
-                                    <li>
-                                        <span>3450 </span>
-                                        Square Ft
-                                    </li>
-                                </ul>
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                <i class="flaticon-expand"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                <i class="flaticon-heart-1"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html" title="Product Details">
-                                                <i class="flaticon-add"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info-bottom">
-                                <div class="product-price">
-                                    <span>$34,900<label>/Month</label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                                <!-- ltn__product-item -->
-                                <!--<div class="col-xl-6 col-sm-6 col-12">
-                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="~/Client/img/product-3/5.jpg" alt="#"></a>
-                                <div class="real-estate-agent">
-                                    <div class="agent-img">
-                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badg">For Rent</li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                                <div class="product-img-location">
-                                    <ul>
-                                        <li>
-                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                    <li>
-                                        <span>3 </span>
-                                        Bed
-                                    </li>
-                                    <li>
-                                        <span>2 </span>
-                                        Bath
-                                    </li>
-                                    <li>
-                                        <span>3450 </span>
-                                        Square Ft
-                                    </li>
-                                </ul>
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                <i class="flaticon-expand"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                <i class="flaticon-heart-1"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html" title="Product Details">
-                                                <i class="flaticon-add"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info-bottom">
-                                <div class="product-price">
-                                    <span>$34,900<label>/Month</label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                                <!-- ltn__product-item -->
-                                <!--<div class="col-xl-6 col-sm-6 col-12">
-                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                            <div class="product-img">
-                                <a href="product-details.html"><img src="~/Client/img/product-3/6.jpg" alt="#"></a>
-                                <div class="real-estate-agent">
-                                    <div class="agent-img">
-                                        <a href="team-details.html"><img src="~/Client/img/blog/author.jpg" alt="#"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badg">For Rent</li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                                <div class="product-img-location">
-                                    <ul>
-                                        <li>
-                                            <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                    <li>
-                                        <span>3 </span>
-                                        Bed
-                                    </li>
-                                    <li>
-                                        <span>2 </span>
-                                        Bath
-                                    </li>
-                                    <li>
-                                        <span>3450 </span>
-                                        Square Ft
-                                    </li>
-                                </ul>
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal">
-                                                <i class="flaticon-expand"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
-                                                <i class="flaticon-heart-1"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html" title="Product Details">
-                                                <i class="flaticon-add"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info-bottom">
-                                <div class="product-price">
-                                    <span>$34,900<label>/Month</label></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                                <!--  -->
+                                }
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -901,39 +576,31 @@
                     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
                     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                 }
-                <div style=" display: flex; justify-content: left">
-                    <a asp-action="Index"
-                       asp-route-pageNumber="@(Model.PageIndex - 1)"     
-                       class="btn btn-light waves-effect waves-light @prevDisabled">
-                        Previous
-                    </a>
-                    <a asp-action="Index"  
-                       asp-route-pageNumber="@(Model.PageIndex + 1)"                  
-                       class="btn btn-light waves-effect waves-light @nextDisabled">
-                        Next
-                    </a>
-                    <a class="btn btn-light waves-effect waves-light" asp-action="Index">Back to Full List</a>
-                </div>
-                @*<div class="ltn__pagination-area text-center">
+     
+                <div class="ltn__pagination-area text-center">
             <div class="ltn__pagination">
                 <ul>
-                    <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                    <li><a asp-action="Index"
+                       asp-route-pageNumber="@(Model.PageIndex - 1)"     
+                       class="@prevDisabled"><i class="fas fa-angle-double-left"></i></a></li>
                     <li><a href="#">1</a></li>
                     <li class="active"><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">...</a></li>
                     <li><a href="#">10</a></li>
-                    <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                    <li><a asp-action="Index"  
+                       asp-route-pageNumber="@(Model.PageIndex + 1)"                  
+                       class="@nextDisabled"><i class="fas fa-angle-double-right"></i></a></li>
                 </ul>
             </div>
-        </div>*@
+        </div>
             </div>
-            <!--<div class="col-lg-4  mb-100">
+            <div class="col-lg-4  mb-100">
                 <aside class="sidebar ltn__shop-sidebar">
                     <h3 class="mb-10">Advance Information</h3>
-                    <label class="mb-30"><small>About 9,620 results (0.62 seconds) </small></label>-->
-                    <!-- Advance Information widget -->
-                    <!--<div class="widget ltn__menu-widget">
+                    <label class="mb-30"><small>About 9,620 results (0.62 seconds) </small></label>
+                     Advance Information widget 
+                    <div class="widget ltn__menu-widget">
                         <h4 class="ltn__widget-title">Property Type</h4>
                         <ul>
                             <li>
@@ -1065,9 +732,9 @@
                                 <span class="categorey-no">$30,000 Up</span>
                             </li>
                         </ul>
-                        <hr>-->
-                        <!-- Price Filter Widget -->
-                        <!--<div class="widget--- ltn__price-filter-widget">
+                        <hr>
+                         Price Filter Widget 
+                        <div class="widget--- ltn__price-filter-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border---">Filter by price</h4>
                             <div class="price_filter">
                                 <div class="price_slider_amount">
@@ -1141,9 +808,9 @@
                                 <span class="categorey-no">2,912</span>
                             </li>
                         </ul>
-                    </div>-->
-                    <!-- Category Widget -->
-                    <!--<div class="widget ltn__menu-widget d-none">
+                    </div>
+                     Category Widget 
+                    <div class="widget ltn__menu-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Product categories</h4>
                         <ul>
                             <li><a href="#">Body <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
@@ -1154,9 +821,9 @@
                             <li><a href="#">Uncategorized <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
                             <li><a href="#">Wheel <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
                         </ul>
-                    </div>-->
-                    <!-- Price Filter Widget -->
-                    <!--<div class="widget ltn__price-filter-widget d-none">
+                    </div>
+                     Price Filter Widget 
+                    <div class="widget ltn__price-filter-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Filter by price</h4>
                         <div class="price_filter">
                             <div class="price_slider_amount">
@@ -1165,9 +832,9 @@
                             </div>
                             <div class="slider-range"></div>
                         </div>
-                    </div>-->
-                    <!-- Top Rated Product Widget -->
-                    <!--<div class="widget ltn__top-rated-product-widget d-none">
+                    </div>
+                     Top Rated Product Widget 
+                    <div class="widget ltn__top-rated-product-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Top Rated Product</h4>
                         <ul>
                             <li>
@@ -1240,17 +907,17 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>-->
-                    <!-- Search Widget -->
-                    <!--<div class="widget ltn__search-widget d-none">
+                    </div>
+                     Search Widget 
+                    <div class="widget ltn__search-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Search Objects</h4>
                         <form action="#">
                             <input type="text" name="search" placeholder="Search your keyword...">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
-                    </div>-->
-                    <!-- Tagcloud Widget -->
-                    <!--<div class="widget ltn__tagcloud-widget d-none">
+                    </div>
+                     Tagcloud Widget 
+                    <div class="widget ltn__tagcloud-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Popular Tags</h4>
                         <ul>
                             <li><a href="#">Popular</a></li>
@@ -1268,9 +935,9 @@
                             <li><a href="#">Oil Change</a></li>
                             <li><a href="#">Body Color</a></li>
                         </ul>
-                    </div>-->
-                    <!-- Size Widget -->
-                    <!--<div class="widget ltn__tagcloud-widget ltn__size-widget d-none">
+                    </div>
+                     Size Widget 
+                    <div class="widget ltn__tagcloud-widget ltn__size-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Product Size</h4>
                         <ul>
                             <li><a href="#">S</a></li>
@@ -1279,9 +946,9 @@
                             <li><a href="#">XL</a></li>
                             <li><a href="#">XXL</a></li>
                         </ul>
-                    </div>-->
-                    <!-- Color Widget -->
-                    <!--<div class="widget ltn__color-widget d-none">
+                    </div>
+                     Color Widget 
+                    <div class="widget ltn__color-widget d-none">
                         <h4 class="ltn__widget-title ltn__widget-title-border">Product Color</h4>
                         <ul>
                             <li class="black"><a href="#"></a></li>
@@ -1307,14 +974,14 @@
                             <li><a href="#" class="orange"></a></li>
                             <li><a href="#" class="orange"></a></li>
                         </ul>
-                    </div>-->
-                    <!-- Banner Widget -->
-                    <!--<div class="widget ltn__banner-widget d-none">
+                    </div>
+                     Banner Widget 
+                    <div class="widget ltn__banner-widget d-none">
                         <a href="shop.html"><img src="~/Client/img/banner/banner-2.jpg" alt="#"></a>
                     </div>
 
                 </aside>
-            </div>-->
+            </div>
         </div>
     </div>
 </div>
