@@ -1,0 +1,21 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    @await Html.PartialAsync("_Head.cshtml")
+</head>
+
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Header.cshtml")
+        @RenderBody()
+        @await Html.PartialAsync("_Footer.cshtml")
+        @await Html.PartialAsync("_Modal.cshtml")
+        @RenderSection("Scripts", required: false)
+    </div>
+    <script src="~/Client/js/plugins.js"></script>
+    <script src="~/Client/js/main.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="HouseDomain\DTO\Responses\" />
+    <Folder Include="HouseDomain\DTO\Requests\" />
+    <Folder Include="UserDomain\" />
+  </ItemGroup>
+
+</Project>
