@@ -10,6 +10,8 @@ namespace BoardingHouse.Domain.Base.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IHouseRepository Houses { get; }
+        IHouseTypeRepository HouseTypes { get; }
+        IConvenienceRepository Conveniences { get; }
         Task CommitAsync();
     }
 }

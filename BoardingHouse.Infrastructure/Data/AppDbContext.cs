@@ -16,6 +16,9 @@ namespace BoardingHouse.Infrastructure.Data
         {
 
         }
+        public DbSet<HouseType> HouseTypes { get; set; }
         public DbSet<House> Houses { get; set; }
+        public DbSet<Convenience> Conveniences { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
     }
 }

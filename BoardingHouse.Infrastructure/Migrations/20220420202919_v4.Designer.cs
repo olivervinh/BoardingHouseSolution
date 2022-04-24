@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoardingHouse.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220417184037_v3")]
-    partial class v3
+    [Migration("20220420202919_v4")]
+    partial class v4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,26 @@ namespace BoardingHouse.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.15")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.Convenience", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("FkHouseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FkHouseId");
+
+                    b.ToTable("Conveniences");
+                });
 
             modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.House", b =>
                 {
@@ -31,9 +51,6 @@ namespace BoardingHouse.Infrastructure.Migrations
                     b.Property<int>("Acreage")
                         .HasColumnType("int");
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
@@ -41,10 +58,16 @@ namespace BoardingHouse.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ElectricityPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,0)");
+
+                    b.Property<string>("FkAppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("FkHouseTypeId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("HousePrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,0)");
 
                     b.Property<string>("HouseStatus")
                         .HasColumnType("nvarchar(max)");
@@ -74,13 +97,30 @@ namespace BoardingHouse.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("WaterPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,0)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("FkAppUserId");
+
+                    b.HasIndex("FkHouseTypeId");
 
                     b.ToTable("Houses");
+                });
+
+            modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.HouseType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HouseTypes");
                 });
 
             modelBuilder.Entity("BoardingHouse.Domain.UserDomain.Models.AppUser", b =>
@@ -288,13 +328,28 @@ namespace BoardingHouse.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.Convenience", b =>
+                {
+                    b.HasOne("BoardingHouse.Domain.HouseDomain.Models.House", "House")
+                        .WithMany("Conveniences")
+                        .HasForeignKey("FkHouseId");
+
+                    b.Navigation("House");
+                });
+
             modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.House", b =>
                 {
                     b.HasOne("BoardingHouse.Domain.UserDomain.Models.AppUser", "AppUser")
                         .WithMany("Houses")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("FkAppUserId");
+
+                    b.HasOne("BoardingHouse.Domain.HouseDomain.Models.HouseType", "HouseType")
+                        .WithMany("Houses")
+                        .HasForeignKey("FkHouseTypeId");
 
                     b.Navigation("AppUser");
+
+                    b.Navigation("HouseType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -346,6 +401,16 @@ namespace BoardingHouse.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.House", b =>
+                {
+                    b.Navigation("Conveniences");
+                });
+
+            modelBuilder.Entity("BoardingHouse.Domain.HouseDomain.Models.HouseType", b =>
+                {
+                    b.Navigation("Houses");
                 });
 
             modelBuilder.Entity("BoardingHouse.Domain.UserDomain.Models.AppUser", b =>

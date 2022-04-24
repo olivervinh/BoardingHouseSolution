@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoardingHouse.Domain.HouseDomain.Models
 {
@@ -12,13 +10,16 @@ namespace BoardingHouse.Domain.HouseDomain.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get;set; }
+        public string Name { get; set; }
         public string Description { get; set; }
+        [Column(TypeName = "decimal(18,0)")]
         public decimal HousePrice { get; set; }
         public string UnitHousePrice { get; set; }
         public int Capacity { get; set; }
+        [Column(TypeName = "decimal(18,0)")]
         public decimal ElectricityPrice { get; set; }
         public string UnitElectricityPrice { get; set; }
+        [Column(TypeName = "decimal(18,0)")]
         public decimal WaterPrice { get; set; }
         public string UnitWaterPrice { get; set; }
         public int NumberMezzanine { get; set; }
@@ -26,7 +27,14 @@ namespace BoardingHouse.Domain.HouseDomain.Models
         public string UnitAcreage { get; set; }
         public DateTime PublicationDate { get; set; }
         public string HouseStatus { get; set; }
+        public string BusinessType { get; set; }
         public bool IsParkingVehicleInRoom { get; set; }
+        public string? FkAppUserId {get;set;}
+        [ForeignKey("FkAppUserId")]
         public virtual AppUser AppUser { get; set; }
+        public int? FkHouseTypeId { get; set; }
+        [ForeignKey("FkHouseTypeId")]
+        public virtual HouseType HouseType { get; set; }
+        public virtual ICollection<Convenience> Conveniences { get; set; }
     }
 }

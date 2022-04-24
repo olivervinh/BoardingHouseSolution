@@ -603,106 +603,38 @@
                     <div class="widget ltn__menu-widget">
                         <h4 class="ltn__widget-title">Property Type</h4>
                         <ul>
-                            <li>
-                                <label class="checkbox-item">
-                                    House
-                                    <input type="checkbox" checked="checked">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">3,924</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Single Family
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">3,610</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Apartment
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">2,912</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Office Villa
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">2,687</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Luxary Home
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">1,853</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Studio
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">893</span>
-                            </li>
+                            @{
+                                foreach (HouseType houseType in ViewBag.list_HouseTypes)
+                                {
+                                    <li>
+                                        <label class="checkbox-item">
+                                            @houseType.Name
+                                            <input type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="categorey-no">3,924</span>
+                                    </li>
+                                }
+                            }
+
                         </ul>
                         <hr>
                         <h4 class="ltn__widget-title">Amenities</h4>
                         <ul>
-                            <li>
-                                <label class="checkbox-item">
-                                    Dishwasher
-                                    <input type="checkbox" checked="checked">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">3,924</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Floor Coverings
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">3,610</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Internet
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">2,912</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Build Wardrobes
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">2,687</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Supermarket
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">1,853</span>
-                            </li>
-                            <li>
-                                <label class="checkbox-item">
-                                    Kids Zone
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="categorey-no">893</span>
-                            </li>
+                            @{
+                                foreach (Convenience convenience in ViewBag.list_Conveniences)
+                                {
+                                    <li>
+                                        <label class="checkbox-item">
+                                            @convenience.Name
+                                            <input type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span class="categorey-no">3,924</span>
+                                    </li>
+                                }
+                            }
+
                         </ul>
                         <hr>
                         <h4 class="ltn__widget-title">Price Renge</h4>

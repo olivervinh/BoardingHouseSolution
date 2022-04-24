@@ -3,7 +3,7 @@ using BoardingHouse.Domain.HouseDomain.Models;
 
 namespace BoardingHouse.Domain.HouseDomain.IRepositories
 {
-    public interface IHouseRepository:IRepository<House>
+    public interface IConvenienceRepository : IRepository<Convenience>
     {
     }
 }

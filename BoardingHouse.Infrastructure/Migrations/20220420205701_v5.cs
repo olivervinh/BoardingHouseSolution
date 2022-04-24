@@ -2,12 +2,12 @@
 
 namespace BoardingHouse.Infrastructure.Migrations
 {
-    public partial class v2 : Migration
+    public partial class v5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Name",
+                name: "BusinessType",
                 table: "Houses",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -16,7 +16,7 @@ namespace BoardingHouse.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Name",
+                name: "BusinessType",
                 table: "Houses");
         }
     }

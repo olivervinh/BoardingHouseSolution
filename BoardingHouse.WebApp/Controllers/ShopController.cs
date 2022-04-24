@@ -16,6 +16,8 @@ namespace BoardingHouse.WebApp.Controllers
         }
         public async Task<IActionResult> Index(int? pageNumber)
         {
+            ViewBag.list_HouseTypes = await _shopService.GetHouseTypesAsync();
+            ViewBag.list_Conveniences = await _shopService.GetConveniencesAsync();
             return  View(await _shopService.GetPaginationHousesAsync(pageNumber));
         }
     }

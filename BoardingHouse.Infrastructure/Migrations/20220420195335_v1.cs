@@ -3,16 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BoardingHouse.Infrastructure.Migrations
 {
-    public partial class v3 : Migration
+    public partial class v1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "AppUserId",
-                table: "Houses",
-                type: "nvarchar(450)",
-                nullable: true);
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -53,6 +47,19 @@ namespace BoardingHouse.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HouseType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HouseType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -161,10 +168,66 @@ namespace BoardingHouse.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Houses_AppUserId",
-                table: "Houses",
-                column: "AppUserId");
+            migrationBuilder.CreateTable(
+                name: "Houses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HousePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UnitHousePrice = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    ElectricityPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UnitElectricityPrice = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WaterPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UnitWaterPrice = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NumberMezzanine = table.Column<int>(type: "int", nullable: false),
+                    Acreage = table.Column<int>(type: "int", nullable: false),
+                    UnitAcreage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublicationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HouseStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsParkingVehicleInRoom = table.Column<bool>(type: "bit", nullable: false),
+                    FkAppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    FkHouseTypeId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Houses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Houses_AspNetUsers_FkAppUserId",
+                        column: x => x.FkAppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Houses_HouseType_FkHouseTypeId",
+                        column: x => x.FkHouseTypeId,
+                        principalTable: "HouseType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Convenience",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FkHouseId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Convenience", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Convenience_Houses_FkHouseId",
+                        column: x => x.FkHouseId,
+                        principalTable: "Houses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -205,21 +268,24 @@ namespace BoardingHouse.Infrastructure.Migrations
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Houses_AspNetUsers_AppUserId",
+            migrationBuilder.CreateIndex(
+                name: "IX_Convenience_FkHouseId",
+                table: "Convenience",
+                column: "FkHouseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Houses_FkAppUserId",
                 table: "Houses",
-                column: "AppUserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                column: "FkAppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Houses_FkHouseTypeId",
+                table: "Houses",
+                column: "FkHouseTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Houses_AspNetUsers_AppUserId",
-                table: "Houses");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -236,18 +302,19 @@ namespace BoardingHouse.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Convenience");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Houses");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Houses_AppUserId",
-                table: "Houses");
-
-            migrationBuilder.DropColumn(
-                name: "AppUserId",
-                table: "Houses");
+            migrationBuilder.DropTable(
+                name: "HouseType");
         }
     }
 }
